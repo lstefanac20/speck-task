@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
         <meta charset="UTF-8">
         <meta description="Speck Academy task 2023">
@@ -18,19 +17,35 @@
             }
         </style>
         <script>
+            function getTechnology(){
+                var input = document.getElementById("inputValue");
+                var value = input.value;
 
+                var newValue = document.createElement("li");
+                newValue.textContent = value;
+
+                var list = document.getElementById("list");
+                list.appendChild(newValue);
+
+                input.value = "";
+            }
+                function remove(){
+                    var list = document.getElementById("list");
+                    list.innerHTML = "";
+                }
+            
         </script>
     </head>
     <body>
         <header>
             <h1>My technologies</h1>
-            <input type="text" name="values" placeholder="Enter new technology...">
-            <button>Add</button>
-            <a href="#">Remove all items</a>
+            <input type="text" name="values" id="inputValue" placeholder="Enter new technology...">
+            <button onclick="getTechnology()">Add</button>
+            <a href="#" id="remove" onclick="remove()">Remove all items</a>
         </header>
         <main>
-            <div>
-                <ul></ul>
+            <div id="container">
+                <ul id="list"></ul>
             </div>
         </main>
     </body>
